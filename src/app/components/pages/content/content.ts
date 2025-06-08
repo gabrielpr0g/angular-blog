@@ -1,30 +1,46 @@
-// src/app/content/content.ts (ou content.component.ts, se você tiver renomeado)
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { dataFake } from '../../../data/datafake';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <-- Importe CommonModule
-import { ActivatedRoute, RouterLink } from '@angular/router';   // <-- Importe RouterLink (se for usar [routerLink] no HTML)
-import { __values } from 'tslib';
+
 
 @Component({
   selector: 'app-content',
-  standalone: true, // <-- ADICIONE ESTA LINHA para marcar como componente standalone
-  imports: [
-    CommonModule,  // <-- ADICIONE CommonModule aqui
-    RouterLink     // <-- ADICIONE RouterLink aqui (só se for usar [routerLink] no template HTML)
+  standalone: true,
+   imports: [
+    CommonModule,
+    RouterLink
   ],
-  templateUrl: './content.html',
-  styleUrl: './content.css'
-})
-export class Content {
-  photoCover:string = "https://assets.dio.me/0XOezmEOefR55-vMdozTXE8o4RuPZ9IcBM51KCWgvU0/f:webp/q:80/L2FydGljbGVzL2NvdmVyLzg2OTMyY2U2LTZlNGUtNDE4NC1hMjBlLTlmMjZhOTk3Yzc0MC5wbmc"
-  contentTitle:string = "NOTICIA EXEMPLO"
-  contentDescription:string="Editar depois"
 
-  constructor ( private route: ActivatedRoute
-  ){}
-  ngOninit(): void {
-    this.route.paramMap.subscribe( value => 
-      console.log(value.get("Id"))
+   templateUrl: './content.html',
+  styleUrls: ['./content.css']
+})
+export class ContentComponent implements OnInit {
+  photoCover:string = ""
+  contentTitle:string = ""
+  contentDescription:string = ""
+  private id:string | null = "0"
+
+  constructor(
+    private route:ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe( value =>
+     this.id = value.get("id")
     )
+
+    this.setValuesToComponent(this.id)
   }
+
+  setValuesToComponent(id:string | null){
+    const result = dataFake.filter(article => article.id == id)[0]
+
+    this.contentTitle = result.title
+    this.contentDescription = result.description
+    this.photoCover = result.photoCover
+  }
+
 }

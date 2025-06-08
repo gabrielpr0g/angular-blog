@@ -1,12 +1,22 @@
-import { Routes } from '@angular/router';
-import { Content } from './components/pages/content/content';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ContentComponent } from './components/pages/content/content';
 import { Home } from './components/pages/home/home';
-import { RouterLink } from '@angular/router';
-export const routes: Routes = [ {
-    path: 'content/:id',
-    component: Content
+
+
+export const routes: Routes = [
+  {
+    path:'',
+    component:Home
   },
-    {
-        path:'',
-        component: Home
-    }];
+  {
+    path:'content/:id',
+    component:ContentComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
