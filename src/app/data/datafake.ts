@@ -3,12 +3,13 @@ export const dataFake = [
     "id":"1",
     "title": "Nova atualização Angular",
     "description": "Nova atualização Angular",
-    "photoCover":"https://algaworks-blog.s3.amazonaws.com/wp-content/uploads/Angular.png"
+    "photoCover":"https://logowik.com/content/uploads/images/angular-new6082.logowik.com.webp"
   },
   {
     "id":"2",
     "title": "Nova atualização Angular",
     "description": "Nova atualização Angular",
-    "photoCover":"https://disneyplusbrasil.com.br/wp-content/uploads/2021/07/Series-Marvel-Disney-Plus-1024x576.jpg"
-  }
+    "photoCover":"https://vidafullstack.com.br/wp-content/uploads/2021/07/versao-12-angular-1080x675.png"
+  },
+  
 ]
