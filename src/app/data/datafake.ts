@@ -11,5 +11,17 @@ export const dataFake = [
     "description": "Nova atualização Angular",
     "photoCover":"https://vidafullstack.com.br/wp-content/uploads/2021/07/versao-12-angular-1080x675.png"
   },
+  {
+    "id":"3",
+    "title": "Nova atualização Angular",
+    "description": "Nova atualização Angular",
+    "photoCover":"https://vidafullstack.com.br/wp-content/uploads/2021/07/versao-12-angular-1080x675.png"
+  },
+  {
+    "id":"4",
+    "title": "Nova atualização Angular",
+    "description": "Nova atualização Angular",
+    "photoCover":"https://vidafullstack.com.br/wp-content/uploads/2021/07/versao-12-angular-1080x675.png"
+  }
   
 ]
